@@ -1,0 +1,26 @@
+<h1>Agenda</h1>
+<form (ngSubmit)="onSubmit()" #Ficha="ngForm">
+<label for="nombre">Nombre:
+<input type="text" id="nombre" name="nombre" required [(ngModel)]="nombre"/></label>
+
+<label for="apellidos">Apellidos:
+    <input type="text" id="apellidos" name="apellidos" required [(ngModel)]="apellidos"/></label>
+<label for="edad">Edad:
+    <input type="text" id="edad" name="edad" required [(ngModel)]="edad"/>
+</label>
+<label for="cumpleanios">Cumpleaños:
+    <input type="text" id="cumpleanios" name="cumpleanios" required [(ngModel)]="cumpleanios"/>
+</label>
+<label for="color">Color favorito:
+    <input type="text" id="color" name="color" [(ngModel)]="colorFavorito"/>
+</label>
+
+
+<label for="notas">Notas:
+    <input type="text" id="notas" name="notas" [(ngModel)]="notas"/>
+</label>
+<button type="submit">Agregar persona</button>
+</form>
+
+<h2>Lista de personas</h2>
+
