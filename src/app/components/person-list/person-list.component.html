@@ -38,10 +38,10 @@
     <td>DNI</td>
     <td>Acción</td>
   </tr>
-  <tr *ngFor="let person of getPerson()">
+  <tr *ngFor="let person of agenda; let i = index">
     <td>{{ person.nombre }}</td>
     <td>{{ person.apellidos }}</td>
     <td>{{ person.dni }}</td>
-    <td></td>
+    <td><mat-icon (click)="deletePerson(i)">delete</mat-icon></td>
   </tr>
 </table>

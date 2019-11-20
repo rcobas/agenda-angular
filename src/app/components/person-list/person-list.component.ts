@@ -8,11 +8,19 @@ import { HomeServiceService } from "src/app/services/home-service.service";
   styleUrls: ["./person-list.component.css"]
 })
 export class PersonListComponent implements OnInit {
+  agenda: Person[];
+
   constructor(private homeService: HomeServiceService) {}
 
   public getPerson() {
-    return this.homeService.getPersonInfo();
+    this.agenda = this.homeService.getPersonInfo();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPerson();
+  }
+
+  public deletePerson(i: number) {
+    this.homeService.deletePerson(i);
+  }
 }

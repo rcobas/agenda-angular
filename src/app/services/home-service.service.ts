@@ -41,4 +41,8 @@ export class HomeServiceService {
   public addPerson(persona: Person) {
     this.agenda.push(persona);
   }
+
+  public deletePerson(index: number) {
+    this.agenda.splice(index, 1);
+  }
 }
