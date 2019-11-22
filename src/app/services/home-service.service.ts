@@ -15,9 +15,9 @@ export class HomeServiceService {
       "Cobas",
       35,
       "47653896N",
-      "26/11/1984",
+      new Date("11/26/1984"),
       "Turquesa",
-      "Mujer",
+      "mujer",
       ""
     );
     this.agenda.push(persona1);
@@ -26,9 +26,9 @@ export class HomeServiceService {
       "Ferrero",
       34,
       "54678678D",
-      "12/03/1985",
+      new Date("03/12/1985"),
       "Amarillo",
-      "Hombre",
+      "hombre",
       ""
     );
     this.agenda.push(persona2);
@@ -44,5 +44,13 @@ export class HomeServiceService {
 
   public deletePerson(index: number) {
     this.agenda.splice(index, 1);
+  }
+
+  public updatePerson(index: number, persona: Person) {
+    this.agenda[index] = persona;
+  }
+
+  public getPersonByPosition(index: number): Person {
+    return Object.assign({}, this.agenda[index]);
   }
 }

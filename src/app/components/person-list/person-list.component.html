@@ -42,6 +42,9 @@
     <td>{{ person.nombre }}</td>
     <td>{{ person.apellidos }}</td>
     <td>{{ person.dni }}</td>
+    <td>
+      <mat-icon [routerLink]="['/edit-person/', i]">edit</mat-icon>
+    </td>
     <td><mat-icon (click)="deletePerson(i)">delete</mat-icon></td>
   </tr>
 </table>

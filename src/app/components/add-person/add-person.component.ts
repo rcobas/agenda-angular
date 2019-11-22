@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { HomeServiceService } from "src/app/services/home-service.service";
 import { Person } from "./../../shared/person";
 import { Router } from "@angular/router";
@@ -14,7 +14,7 @@ export class AddPersonComponent implements OnInit {
   apellidos: string;
   edad: number;
   dni: string;
-  cumpleanios: string;
+  cumpleanios: Date;
   colorFavorito: string;
   sexo: string;
   notas: string;
@@ -24,6 +24,8 @@ export class AddPersonComponent implements OnInit {
     private router: Router
   ) {}
   onSubmit() {
+    this.sexo;
+    debugger;
     const person = new Person(
       this.nombre,
       this.apellidos,

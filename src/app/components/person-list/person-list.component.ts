@@ -23,4 +23,5 @@ export class PersonListComponent implements OnInit {
   public deletePerson(i: number) {
     this.homeService.deletePerson(i);
   }
+  public editPerson(i: number) {}
 }

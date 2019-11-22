@@ -3,7 +3,7 @@ export class Person {
   apellidos: string;
   edad: number;
   dni: string;
-  cumpleanios: string;
+  cumpleanios: Date;
   colorFavorito: string;
   sexo: string;
   notas: string;
@@ -13,7 +13,7 @@ export class Person {
     apellidos: string,
     edad: number,
     dni: string,
-    cumpleanios: string,
+    cumpleanios: Date,
     colorFavorito: string,
     sexo: string,
     notas: string

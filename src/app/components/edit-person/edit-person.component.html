@@ -1,15 +1,17 @@
 <div class="main-container">
-  <h1>Agenda</h1>
+  <h1>
+    <mat-icon routerLink="/person-list">arrow_back</mat-icon> Editar contacto
+  </h1>
   <form (ngSubmit)="onSubmit()" class="form-container" #Ficha="ngForm">
     <div class="form-container__column">
       <mat-form-field>
         <input
           matInput
           placeholder="Nombre"
-          name="nombre"
+          name="persona.nombre"
           value=""
           required
-          [(ngModel)]="nombre"
+          [(ngModel)]="persona.nombre"
           minlength="3"
         />
       </mat-form-field>
@@ -18,10 +20,10 @@
         <input
           matInput
           placeholder="Apellidos"
-          name="apellidos"
+          name="persona.apellidos"
           value=""
           required
-          [(ngModel)]="apellidos"
+          [(ngModel)]="persona.apellidos"
           minlength="3"
         />
       </mat-form-field>
@@ -29,10 +31,10 @@
         <input
           matInput
           placeholder="Edad"
-          name="edad"
+          name="persona.edad"
           value=""
           required
-          [(ngModel)]="edad"
+          [(ngModel)]="persona.edad"
           min="0"
           max="0"
         />
@@ -41,9 +43,9 @@
         <input
           matInput
           placeholder="DNI"
-          name="dni"
+          name="persona.dni"
           required
-          [(ngModel)]="dni"
+          [(ngModel)]="persona.dni"
           minlength="9"
           maxlength="9"
         />
@@ -55,10 +57,10 @@
           matInput
           [matDatepicker]="picker"
           placeholder="Cumpleaños"
-          name="cumpleanios"
+          name="persona.cumpleanios"
           value=""
           required
-          [(ngModel)]="cumpleanios"
+          [(ngModel)]="persona.cumpleanios"
         />
         <mat-datepicker-toggle matSuffix [for]="picker">
           <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -69,16 +71,16 @@
         <input
           matInput
           placeholder="Color favorito"
-          name="color"
+          name="persona.colorFavorito"
           value=""
           required
-          [(ngModel)]="colorFavorito"
+          [(ngModel)]="persona.colorFavorito"
           minlength="3"
         />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Sexo</mat-label>
-        <mat-select name="sexo" required [(ngModel)]="sexo">
+        <mat-select name="persona.sexo" required [(ngModel)]="persona.sexo">
           <mat-option value="no-especificado">No especificado</mat-option>
           <mat-option value="hombre">Hombre</mat-option>
           <mat-option value="mujer">Mujer</mat-option>
@@ -90,8 +92,8 @@
         <textarea
           matInput
           placeholder="Notas"
-          name="notas"
-          [(ngModel)]="notas"
+          name="persona.notas"
+          [(ngModel)]="persona.notas"
         ></textarea>
       </mat-form-field>
       <div class="form-button">
@@ -101,8 +103,8 @@
           type="submit"
           color="primary"
         >
-          <mat-icon>add</mat-icon>
-          Añadir contacto
+          <mat-icon>send</mat-icon>
+          Actualizar
         </button>
       </div>
     </div>

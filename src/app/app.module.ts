@@ -10,9 +10,10 @@ import { AngularMaterialModule } from "./modules/angular-material/angular-materi
 import { AddPersonComponent } from "./components/add-person/add-person.component";
 import { PersonListComponent } from "./components/person-list/person-list.component";
 import { HomeServiceService } from "./services/home-service.service";
+import { EditPersonComponent } from './components/edit-person/edit-person.component';
 
 @NgModule({
-  declarations: [AppComponent, AddPersonComponent, PersonListComponent],
+  declarations: [AppComponent, AddPersonComponent, PersonListComponent, EditPersonComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
