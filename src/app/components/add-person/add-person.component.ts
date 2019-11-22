@@ -24,8 +24,6 @@ export class AddPersonComponent implements OnInit {
     private router: Router
   ) {}
   onSubmit() {
-    this.sexo;
-    debugger;
     const person = new Person(
       this.nombre,
       this.apellidos,
