@@ -19,8 +19,7 @@ export class HomeServiceService {
   constructor(private http: HttpClient) {}
 
   public getPersonInfo() {
-    console.log(this.http.get(this.path));
-    return this.http.get(this.path);
+    return this.http.get<Person[]>(this.path);
   }
 
   public addPerson(persona: Person) {
@@ -41,7 +40,9 @@ export class HomeServiceService {
 
   //public getPersonByPosition(index: number): Person {}
   public getPersonByPosition(id: string) {
-    return this.http.get(this.path + "/" + id).pipe(catchError(this.errorMgmt));
+    return this.http
+      .get<Person>(this.path + "/" + id)
+      .pipe(catchError(this.errorMgmt));
   }
 
   private errorMgmt(error: HttpErrorResponse) {

@@ -8,7 +8,7 @@ import { HomeServiceService } from "src/app/services/home-service.service";
   styleUrls: ["./person-list.component.css"]
 })
 export class PersonListComponent implements OnInit {
-  agenda: any = [];
+  agenda: Person[] = [];
   dataSource: Person[];
 
   displayedColumns: string[] = ["nombre", "apellidos", "dni", "acciones"];

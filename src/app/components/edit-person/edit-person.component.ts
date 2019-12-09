@@ -13,7 +13,7 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
 export class EditPersonComponent implements OnInit {
   id: string;
 
-  persona: any;
+  persona: Person;
 
   constructor(
     private homeService: HomeServiceService,
