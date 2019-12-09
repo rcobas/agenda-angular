@@ -10,17 +10,24 @@ import { AngularMaterialModule } from "./modules/angular-material/angular-materi
 import { AddPersonComponent } from "./components/add-person/add-person.component";
 import { PersonListComponent } from "./components/person-list/person-list.component";
 import { HomeServiceService } from "./services/home-service.service";
-import { EditPersonComponent } from './components/edit-person/edit-person.component';
+import { EditPersonComponent } from "./components/edit-person/edit-person.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, AddPersonComponent, PersonListComponent, EditPersonComponent],
+  declarations: [
+    AppComponent,
+    AddPersonComponent,
+    PersonListComponent,
+    EditPersonComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
   providers: [HomeServiceService],
   bootstrap: [AppComponent]

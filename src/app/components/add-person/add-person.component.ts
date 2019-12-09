@@ -35,8 +35,9 @@ export class AddPersonComponent implements OnInit {
       this.notas
     );
 
-    this.homeService.addPerson(person);
-    this.router.navigateByUrl("/person-list");
+    this.homeService.addPerson(person).subscribe(data => {
+      this.router.navigateByUrl("/person-list");
+    });
   }
 
   ngOnInit() {}

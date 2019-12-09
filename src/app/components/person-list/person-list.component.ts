@@ -8,7 +8,7 @@ import { HomeServiceService } from "src/app/services/home-service.service";
   styleUrls: ["./person-list.component.css"]
 })
 export class PersonListComponent implements OnInit {
-  agenda: Person[];
+  agenda: any = [];
   dataSource: Person[];
 
   displayedColumns: string[] = ["nombre", "apellidos", "dni", "acciones"];
@@ -16,17 +16,20 @@ export class PersonListComponent implements OnInit {
   constructor(private homeService: HomeServiceService) {}
 
   public getPerson() {
-    this.agenda = this.homeService.getPersonInfo();
-    this.dataSource = [...this.agenda];
+    this.homeService.getPersonInfo().subscribe(data => {
+      this.agenda = data;
+      this.dataSource = [...this.agenda];
+    });
   }
 
   ngOnInit() {
     this.getPerson();
   }
 
-  public deletePerson(i: number) {
-    this.homeService.deletePerson(i);
-    this.dataSource = [...this.agenda];
+  public deletePerson(i: string) {
+    this.homeService.deletePerson(i).subscribe(data => {
+      this.getPerson();
+    });
   }
-  public editPerson(i: number) {}
+  public editPerson(id: string) {}
 }

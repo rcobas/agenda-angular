@@ -11,9 +11,9 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
   styleUrls: ["./edit-person.component.css"]
 })
 export class EditPersonComponent implements OnInit {
-  index: number;
+  id: string;
 
-  persona: Person;
+  persona: any;
 
   constructor(
     private homeService: HomeServiceService,
@@ -22,12 +22,15 @@ export class EditPersonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.index = parseInt(this.route.snapshot.paramMap.get("i"));
-    this.persona = this.homeService.getPersonByPosition(this.index);
+    this.id = this.route.snapshot.paramMap.get("i");
+    this.homeService.getPersonByPosition(this.id).subscribe(data => {
+      this.persona = data;
+    });
   }
 
   onSubmit() {
-    this.homeService.updatePerson(this.index, this.persona);
-    this.router.navigateByUrl("/person-list");
+    this.homeService.updatePerson(this.id, this.persona).subscribe(data => {
+      this.router.navigateByUrl("/person-list");
+    });
   }
 }

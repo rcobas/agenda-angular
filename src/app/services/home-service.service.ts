@@ -1,56 +1,50 @@
 import { Injectable } from "@angular/core";
 import { Person } from "../shared/person";
 import { AddPersonComponent } from "../components/add-person/add-person.component";
+import { catchError } from "rxjs/operators";
+
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse
+} from "@angular/common/http";
+import { throwError } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class HomeServiceService {
-  private agenda: Person[];
+  path: string = "http://localhost:3000/personas";
 
-  constructor() {
-    this.agenda = [];
-    let persona1 = new Person(
-      "Rosa",
-      "Cobas",
-      35,
-      "47653896N",
-      new Date("11/26/1984"),
-      "Turquesa",
-      "mujer",
-      ""
-    );
-    this.agenda.push(persona1);
-    let persona2 = new Person(
-      "David",
-      "Ferrero",
-      34,
-      "54678678D",
-      new Date("03/12/1985"),
-      "Amarillo",
-      "hombre",
-      ""
-    );
-    this.agenda.push(persona2);
-  }
+  constructor(private http: HttpClient) {}
 
-  public getPersonInfo(): Person[] {
-    return this.agenda;
+  public getPersonInfo() {
+    console.log(this.http.get(this.path));
+    return this.http.get(this.path);
   }
 
   public addPerson(persona: Person) {
-    this.agenda.push(persona);
+    return this.http.post(this.path, persona).pipe(catchError(this.errorMgmt));
   }
 
-  public deletePerson(index: number) {
-    this.agenda.splice(index, 1);
+  public deletePerson(id: string) {
+    return this.http
+      .delete(this.path + "/" + id)
+      .pipe(catchError(this.errorMgmt));
   }
 
-  public updatePerson(index: number, persona: Person) {
-    this.agenda[index] = persona;
+  public updatePerson(id: string, persona: Person) {
+    return this.http
+      .put(this.path + "/" + id, persona)
+      .pipe(catchError(this.errorMgmt));
   }
 
-  public getPersonByPosition(index: number): Person {
-    return Object.assign({}, this.agenda[index]);
+  //public getPersonByPosition(index: number): Person {}
+  public getPersonByPosition(id: string) {
+    return this.http.get(this.path + "/" + id).pipe(catchError(this.errorMgmt));
+  }
+
+  private errorMgmt(error: HttpErrorResponse) {
+    return throwError("Error");
   }
 }
